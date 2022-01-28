@@ -1,0 +1,19 @@
+@import "_partials";
+
+.action-flag {
+  .save-link__star .star {
+    fill: $white;
+    stroke-width: 3rem;
+    stroke: $green-60;
+  }
+}
+
+.action-unflag {
+  .save-link__star .star {
+    fill: $green-60;
+    stroke-width: 3rem;
+    stroke: $green-60;
+  }
+}
+
+

@@ -1,0 +1,431 @@
+@import '_partials';
+
+.filters__inputs {
+  padding: rem(18px);
+
+  @include bp(medium) {
+    padding: rem(30px);
+  }
+}
+
+.MuiFormControl-root {
+  display: flex !important;
+  z-index: auto !important;
+}
+
+.filters__inputs-inner {
+  margin: rem(-9px);
+
+  > *,
+  > .form-item,
+  > .input {
+    flex: none;
+    margin: rem(9px);
+  }
+
+  label {
+    margin: 0;
+  }
+
+  input,
+  select {
+    width: 100%;
+  }
+
+  .form-actions {
+    display: flex;
+    flex: none;
+    flex-basis: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    width: 100%;
+
+    > * {
+      flex: none;
+      margin: rem(18px);
+      width: auto;
+    }
+  }
+
+  @include bp(small) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    > *,
+    > .form-item,
+    > .input {
+      align-self: flex-end;
+      flex-basis: calc((100% / 2) - #{rem(18px)});
+    }
+  }
+
+  @include bp(medium) {
+    margin: rem(-15px);
+
+    > *,
+    > .form-item,
+    > .input {
+      display: flex;
+      flex-basis: calc((100% / 3) - #{rem(30px)});
+      flex-direction: column;
+      justify-content: flex-end;
+      margin: rem(15px);
+
+      .filters--3up & {
+        flex-basis: calc((100% / 3) - #{rem(30px)});
+      }
+
+      .filters--4up & {
+        flex-basis: calc((100% / 4) - #{rem(30px)});
+      }
+    }
+
+    .form-actions {
+      flex-basis: 100%;
+
+      > * {
+        margin: rem(15px);
+      }
+    }
+  }
+
+  @include bp(large) {
+    > *,
+    > .form-item,
+    > .input {
+      flex-basis: calc((100% / 5) - #{rem(30px)});
+
+      .filters--3up & {
+        flex-basis: calc((100% / 3) - #{rem(30px)});
+      }
+
+      .filters--4up & {
+        flex-basis: calc((100% / 4) - #{rem(30px)});
+      }
+    }
+
+    .form-actions {
+      flex-basis: 100%;
+    }
+  }
+}
+
+[id='views-exposed-form-intercept-events-embed'] .filters__inputs-inner {
+  margin-top: 0;
+}
+
+.intercept-event-list .radios legend {
+  display: none;
+}
+
+#views-exposed-form-research-learn-page-2 .filters__inputs-inner {
+  display: -webkit-box;
+  margin-left: 0;
+  flex-direction: column;
+  @include bp(small) {
+    flex-direction: row;
+  }
+  @include bp(medium) {
+    flex-direction: column;
+  }
+}
+
+%filter {
+  display: flex;
+
+  .filters__inputs > & {
+    width: 100%;
+  }
+}
+
+%filter__label {
+  @include fs(x-small);
+  margin: 0;
+}
+
+%filter__control {
+  width: 100%;
+}
+
+.filters__heading {
+  @include fs(x-small);
+  @include spacing(margin-bottom, narrow);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.radios__group {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+
+  .radios__radio-label {
+    @extend %filter__label;
+
+    &:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+}
+
+.select-filter {
+  @extend %filter;
+
+  .select-wrapper {
+    width: 100%;
+  }
+}
+
+.select-filter__control {
+  @extend %filter__control;
+
+  .select-filter__label {
+    @extend %filter__label;
+  }
+
+  label + .select-filter__menu {
+    margin-top: 16px;
+  }
+}
+
+.select-filter__menu {
+  .select-filter__menu-item {
+    @include fs(tiny);
+    @include spacing('padding-left', narrow);
+
+    svg {
+      height: rem(14px);
+      width: rem(14px);
+    }
+
+    &[data-depth='1'] {
+      padding-left: rem(35px);
+    }
+
+    &[data-depth='2'] {
+      padding-left: rem(70px);
+    }
+  }
+
+  .select-filter__checkbox {
+    color: $clr-text;
+
+    &[class*='checked'] {
+      color: $clr-primary;
+    }
+
+    + [class^='MuiListItemText'] {
+      padding-left: 0;
+    }
+  }
+}
+
+.keyword-filter {
+  @extend %filter;
+
+  .keyword-filter__label {
+    @extend %filter__label;
+  }
+
+  input {
+    line-height: 1;
+  }
+}
+
+.js-form-type-entity-autocomplete {
+  @extend %filter;
+
+  .input__label {
+    @extend %filter__label;
+  }
+}
+
+.keyword-filter__control {
+  @extend %filter__control;
+}
+
+.date-filter {
+  @extend %filter;
+
+  .date-filter__label {
+    @extend %filter__label;
+  }
+}
+
+.time-filter {
+  @extend %filter;
+
+  .time-filter__label {
+    @extend %filter__label;
+  }
+}
+
+.input {
+  @extend %filter;
+
+  .input__label {
+    @extend %filter__label;
+  }
+}
+
+.input.input--number,
+.input.input--checkbox {
+  display: flex;
+}
+
+.input--incrementer {
+  button:focus {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  /* disable up/down arrows on number inputs */
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  @include fs(small);
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, compact);
+  }
+}
+
+.input-group--date-time {
+  display: flex;
+  flex-wrap: wrap;
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, tight);
+  }
+
+  > .input--date {
+    width: 100%;
+  }
+
+  > .input--time {
+    margin-bottom: 0;
+    width: percentage(11/23);
+
+    &:not(:last-child) {
+      margin-right: percentage(1/23);
+    }
+  }
+}
+
+.input-group--subgroup {
+  @include spacing('padding-left', tight);
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, tight);
+  }
+}
+
+.input-group {
+  .input-group__summary,
+  .input-group__details {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .input-group__details {
+    display: block;
+
+    > .input {
+      width: 100%;
+    }
+  }
+
+  .input__label {
+    @extend %filter__label;
+  }
+}
+
+.input-group.input-group--expandable {
+  &:before {
+    content: none;
+  }
+}
+
+.input-group--find-room {
+  > .input--select {
+    @include spacing(margin-bottom, narrow);
+  }
+}
+
+.input--textarea {
+  .input__label {
+    @include fs(body);
+    font-weight: $fw-bold;
+  }
+
+  .input__description {
+    @include fs(tiny);
+
+    &:not(:last-child) {
+      @include spacing(margin-bottom, tight);
+    }
+  }
+
+  textarea {
+    @include fs(x-small);
+  }
+}
+
+// TEMPORARY STYLES
+// The widget for the attendence form on /event/[nid]/analysis is not final.
+// These styles are to clean up the spacing until the
+// markup can be improved.
+table[id='edit-field-attendees'] {
+  margin-top: 0;
+
+  tr[data-drupal-selector] {
+    // Input
+    td:nth-child(1) {
+      width: 4em;
+
+      > .form-item {
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        width: 4em;
+
+        > input {
+          height: auto !important;
+          margin-bottom: 0 !important;
+          padding-bottom: 0 !important;
+          text-align: right;
+        }
+      }
+    }
+
+    // Label
+    td:nth-child(2) {
+      padding-left: 0;
+
+      > .input-field {
+        @include fs(x-small);
+        font-weight: $fw-bold;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  caption {
+    // Visually hidden
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
+  }
+}

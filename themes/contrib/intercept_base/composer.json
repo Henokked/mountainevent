@@ -1,0 +1,20 @@
+{
+  "name": "drupal/intercept_base",
+  "type": "drupal-theme",
+  "description": "Drupal Intercept Base theme.",
+  "keywords": [
+    "Drupal"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.drupal.org/project/intercept_base",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/intercept_base",
+    "source": "http://cgit.drupalcode.org/intercept_base"
+  },
+  "require": {
+    "drupal/components": "^2.4",
+    "drupal/twig_field_value": "^2.0",
+    "drupal/twig_tweak": "^2.1"
+  }
+}

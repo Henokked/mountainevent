@@ -1,0 +1,83 @@
+//
+// @file
+// Color variables.
+//
+// SEE https://yeun.github.io/open-color/
+//
+
+// B & W
+$black: #000;
+$white: #fff;
+
+// Grayscale
+$gray-00: #130f13; // Not in Style Guide
+$gray-10: #261f26; // Not in Style Guide
+$gray-20: #4c4d4f;
+$gray-30: #747481; // changed to slightly darker to comply with A11y constrast standards for AA of 4.5+
+$gray-40: #818487;
+$gray-50: #878b90;
+$gray-60: #d3d8df;
+$gray-70: #e4e8eb;
+$gray-80: #eef1f4;
+$gray-90: #f6f8f9;
+
+// Red
+$red-50: #f44336;
+
+// Blue
+$blue-10: #008db1;
+$blue-20: #0277bd;
+$blue-40: #0288d1;
+$blue-50: #039be5;
+$blue-60: #03a9f4;
+$blue-80: #29b6f6;
+
+// Green
+$green-60: #51832f;
+
+// Orange
+$orange-30: #ff7548;
+$orange-40: #C73200;
+$orange-50: #D13400;
+$orange-60: #DB3700;
+
+
+// Magenta
+$magenta-50: #c91b76;
+$magenta-60: #b0025d;
+
+// Primary
+$clr-primary-dark: $blue-20;
+$clr-primary: $blue-40;
+$clr-primary-light: $blue-50;
+$clr-primary-lighter: $blue-60;
+
+// Secondary
+$clr-secondary-dark: $gray-20;
+$clr-secondary: $gray-30;
+$clr-secondary-light: $gray-60;
+
+// Tertiary
+$clr-tertiary-dark: $orange-40;
+$clr-tertiary: $orange-50;
+$clr-tertiary-light: $orange-60;
+
+//
+// Semantic colors
+//
+
+$clr-neutral: $gray-50; // Default nuetral color
+$clr-text: $gray-20; // Default body copy color
+$clr-link: $clr-secondary; // Default link color
+$clr-heading: $gray-20; // Default accent color
+$clr-accent: $clr-secondary; // Default accent color
+$clr-active: $orange-50; // Default accent color
+$clr-border: $gray-60; // Default border and required color
+$clr-status: $gray-20; // Default status color
+$clr-warning: $orange-50; // Default warning color
+$clr-error: $red-50; // Default error and required color
+$clr-table-border: $clr-border; // Default table border color
+$clr-table-header: $gray-70;
+$clr-table-odd: $white; // Default table odd row color
+$clr-table-even: $gray-90; // Default table even row color
+$clr-gray-bg: $gray-80; // Default table even row color

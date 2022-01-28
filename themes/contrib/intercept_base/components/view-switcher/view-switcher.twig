@@ -1,0 +1,16 @@
+{% import '@intercept-base-components/component.twig' as component %}
+{{ attach_library('intercept_base/view-switcher') }}
+
+{% macro view_switcher__item(link) %}
+{% set classes = 'view-switcher__button' %}
+{% if url('<current>')['#markup'] == link.href['#markup'] %}
+  {% set classes = classes ~ ' view-switcher__button--active' %}
+{% endif %}
+<a class="{{ classes }}" href="{{link.href}}">{{ link.text }}</a>
+{% endmacro %}
+
+<div {{ component.attributes('view-switcher', modifiers, attr) }}>
+  {% for link in links %}
+    {{ _self.view_switcher__item(link) }}
+  {% endfor %}
+</div>

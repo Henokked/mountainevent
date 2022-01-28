@@ -1,0 +1,247 @@
+@import '_partials';
+
+.footer {
+  @include box--padded;
+  @include spacing(margin-top, sparse);
+  align-self: stretch;
+  background: $gray-80;
+
+  @include bp(m-large) {
+    padding: 0;
+  }
+
+  .l--offset > div {
+    padding: 1rem 0;
+    display: flex;
+
+    @include bp(none m-large) {
+      flex-direction: column;
+    }
+
+    @include bp(m-large) {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+
+  .menu a {
+    text-decoration: none;
+    transition: all $duration $easing;
+    mask-repeat: no-repeat;
+    -webkit-mask-position-y: center;
+
+    @include bp(m-large) {
+      display: block;
+    }
+  }
+}
+
+.l--page-minimal + .footer {
+  margin-top: 0;
+}
+
+// Footer Menu (Primary) - About, Work With Us, Blog
+
+.menu--footer-menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+
+  @include bp(none medium) {
+    flex-direction: row;
+  }
+
+  @include bp(medium) {
+    flex-direction: row;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  a {
+    background-color: transparent;
+    color: $clr-secondary-dark;
+
+    @include bp(none m-large) {
+      display: block;
+      padding: 0;
+    }
+
+    @include bp(m-large) {
+      display: inline;
+      padding: 0 0;
+    }
+  }
+}
+
+// CSS for the copyright - only affects Intercept Pantheon Upstream
+#block-intercept-profile-copyright {
+  @include bp(m-large) {
+    padding: 30px 0;
+  }
+}
+
+#block-footermenu {
+  order: 1;
+}
+
+// Copyright
+#block-copyrightblock {
+  flex-basis: 50%;
+  order: 6;
+  @include bp(large) {
+    order: 3;
+  }
+
+  // Privacy Policy
+  a {
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+  span {
+    display: block;
+    @include bp(x-large) {
+      display: inline;
+    }
+  }
+}
+
+#block-gtranslate,
+#block-gtranslate--2 {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: flex-start;
+  margin: 0 auto 10px 0;
+  order: 4;
+
+  select {
+    display: block;
+    margin-right: 1rem;
+    width: 250px;
+    margin-bottom: 1rem;
+
+    @include bp(large) {
+      width: 150px;
+    }
+  }
+
+  .menu__link {
+    background-color: #51832f;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.4rem 1.5rem;
+    height: 100%;
+    max-height: 45px;
+    display: inline-block;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    width: 250px;
+    vertical-align: bottom;
+    // margin-bottom: 1rem;
+  }
+
+  @include bp(large) {
+    justify-content: flex-end;
+
+    select {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    .menu__link {
+      width: unset;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Footer Menu (Social)
+#block-socialmediamenu {
+  flex-basis: 100%;
+  justify-content: flex-start;
+  @include bp(large) {
+    flex-basis: 50%;
+    justify-content: flex-end;
+  }
+
+  margin-bottom: 1rem;
+  order: 2;
+}
+
+.menu--social-media-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+  @include bp(small) {
+    margin-left: 0;
+  }
+
+  a {
+    @include fs(x-small);
+    background-color: $clr-primary;
+    color: $white;
+    font-weight: bold;
+    display: block;
+  }
+
+  a + a,
+  li + li {
+    margin-left: 1rem;
+  }
+
+  // Facebook
+  [href*='facebook.com'] {
+    mask: url('/themes/contrib/intercept_base/images/icons/facebook.svg');
+  }
+
+  // Twitter
+  [href*='twitter.com'] {
+    mask: url('/themes/contrib/intercept_base/images/icons/twitter.svg');
+  }
+
+  // Instagram
+  [href*='instagram.com'] {
+    mask: url('/themes/contrib/intercept_base/images/icons/instagram.svg');
+  }
+
+  // Youtube
+  [href*='youtube.com'] {
+    mask: url('/themes/contrib/intercept_base/images/icons/youtube.svg');
+  }
+
+  // Linkedin
+  [href*='linkedin.com'] {
+    mask: url('/themes/contrib/intercept_base/images/icons/linkedin.svg');
+  }
+
+  [href*='facebook.com'],
+  [href*='twitter.com'],
+  [href*='instagram.com'],
+  [href*='youtube.com'],
+  [href*='linkedin.com'] {
+    background-color: #51832f;
+    background-repeat: no-repeat;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 30px;
+    color: #000;
+
+    &:hover {
+      background-color: #4c752c;
+    }
+  }
+
+  [href*='facebook.com'] {
+    width: 14px;
+  }
+}

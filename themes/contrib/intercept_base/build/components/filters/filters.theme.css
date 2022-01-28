@@ -1,0 +1,29 @@
+.filters__inputs {
+  background-color: #eef1f4;
+  padding: 2.17391% 4.34783% 4.34783%; }
+
+.filters--uniform-padding .filters__inputs,
+.filters__inputs--uniform-padding {
+  padding: 2.17391%; }
+
+.input--textarea .input__label {
+  font-weight: 900; }
+
+.input--textarea .input__description {
+  font-style: italic; }
+
+.input--textarea textarea::-webkit-input-placeholder {
+  color: #d3d8df;
+  font-weight: 900; }
+
+.input--textarea textarea:-ms-input-placeholder {
+  color: #d3d8df;
+  font-weight: 900; }
+
+.input--textarea textarea::-ms-input-placeholder {
+  color: #d3d8df;
+  font-weight: 900; }
+
+.input--textarea textarea::placeholder {
+  color: #d3d8df;
+  font-weight: 900; }

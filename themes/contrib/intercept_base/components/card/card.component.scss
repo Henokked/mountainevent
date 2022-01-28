@@ -1,0 +1,37 @@
+//
+// @file
+// Cart Component Styles
+//
+
+@import "_partials";
+
+.card__content {
+  @include spacing(padding, compact);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;
+}
+
+.card__body {
+  @include fs(small);
+  @include spacing(margin-top, compact);
+}
+
+.card__footer {
+  margin-top: auto;
+}
+
+.card__label {
+  @include fs(small);
+  @include spacing(margin-top, compact);
+  font-style: italic;
+}
+
+.card__dateline-date {
+  margin-bottom: 0;
+}
+
+.card--constrained {
+  max-width: rem(370px);
+}

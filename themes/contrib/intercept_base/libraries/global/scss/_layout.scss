@@ -1,0 +1,421 @@
+//
+// @file
+// Layout styles
+//
+// Classes to help apply layout
+//
+
+// Scrollable table
+.table-overflow-x-scroll .view__content {
+  overflow-x: scroll;
+}
+
+//
+// Page
+//
+
+// factor in the admin menu height in the min-height of the page-wrapper
+.adminimal-admin-toolbar .l--page-wrapper {
+  min-height: calc(100vh - 80px);
+}
+
+.l--page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+
+  @media print {
+    display: block; // fix for Firefox only printing the first page of event registrations
+  }
+
+  > .l--page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    flex: 1;
+  }
+}
+
+.l--page {
+  @include box--constrained(1600px);
+  position: relative;
+  align-self: stretch;
+  flex: 1;
+}
+
+// Set the page width.
+.l--constrained {
+  @include box--constrained;
+}
+
+.l--narrow {
+  @include box--narrow;
+}
+
+.l--overflow-x {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+//
+// Gutters
+//
+.l--offset {
+  @include box--gutters(percentage(0.5/7));
+
+  @include bp(medium) {
+    @include box--gutters(percentage(1/16));
+  }
+
+  @include bp(large) {
+    @include box--gutters(percentage(2/27));
+  }
+
+  // Cancel nested offsets.
+  .l--offset {
+    @include box--gutters(0);
+  }
+}
+
+.l--offset-left {
+  @include box--gutters(percentage(0.5/7), 0);
+
+  @include bp(medium) {
+    @include box--gutters(percentage(1/16), 0);
+  }
+
+  @include bp(large) {
+    @include box--gutters(percentage(2/27), 0);
+  }
+}
+
+.l--offset-right {
+  @include box--gutters(0, percentage(0.5/7));
+
+  @include bp(medium) {
+    @include box--gutters(0, percentage(1/16));
+  }
+
+  @include bp(large) {
+    @include box--gutters(0, percentage(2/27));
+  }
+}
+
+.l--page-minimal {
+  max-width: none;
+
+  .l--offset {
+    @include box--gutters(rem(10px));
+
+    @include bp(medium) {
+      @include box--gutters(rem(20px));
+    }
+
+    @include bp(large) {
+      @include box--gutters(rem(20px));
+    }
+
+    // Cancel nested offsets.
+    .l--offset {
+      @include box--gutters(0);
+    }
+  }
+
+  .l--offset-left {
+    @include box--gutters(rem(10px), 0);
+
+    @include bp(medium) {
+      @include box--gutters(rem(20px), 0);
+    }
+
+    @include bp(large) {
+      @include box--gutters(rem(20px), 0);
+    }
+  }
+
+  .l--offset-right {
+    @include box--gutters(0, rem(10px));
+
+    @include bp(medium) {
+      @include box--gutters(0, rem(20px));
+    }
+
+    @include bp(large) {
+      @include box--gutters(0, rem(20px));
+    }
+  }
+}
+
+.l--padded {
+  @include box--padded;
+}
+
+.l--default {
+  > .l__header,
+  > .l__main {
+    &:not(:last-child) {
+      @include spacing(margin-bottom, loose);
+    }
+  }
+}
+
+//
+// Sidebars
+//
+.l--sidebar-after,
+.l--sidebar-before {
+  > .l__header,
+  > .l__main {
+    &:not(:last-child) {
+      @include spacing(margin-bottom, loose);
+    }
+  }
+
+  > .l__main > .l__primary,
+  > .l__main > .l__secondary {
+    @include bp(none medium) {
+      &:not(:last-child) {
+        @include spacing(margin-bottom, loose, none);
+      }
+    }
+  }
+
+  > .l__main {
+    @include clearfix;
+  }
+
+  @include bp(medium) {
+    > .l__main > .l__primary {
+      width: percentage(9/14);
+    }
+
+    > .l__main > .l__secondary {
+      width: percentage(4/14);
+    }
+  }
+
+  @include bp(large) {
+    > .l__main > .l__primary {
+      width: percentage(15/23);
+    }
+
+    > .l__main > .l__secondary {
+      width: percentage(6/23);
+    }
+  }
+}
+
+//
+// Sidebar After
+//
+.l--sidebar-after {
+  @include bp(medium) {
+    > .l__main > .l__primary {
+      float: left;
+    }
+
+    > .l__main > .l__secondary {
+      float: right;
+    }
+  }
+}
+
+.l--sidebar-after > .l__main > .l__secondary {
+  @media screen and (min-height: 800px) and (min-width: 768px) {
+    position: sticky;
+    top: 1em;
+  }
+}
+
+//
+// Sidebar Before
+//
+.l--sidebar-before {
+  @include bp(medium) {
+    > .l__main > .l__primary {
+      float: right;
+    }
+
+    > .l__main > .l__secondary {
+      float: left;
+    }
+  }
+}
+
+//
+// Sidebars
+//
+.l--2-col {
+  > .l__header,
+  > .l__main {
+    &:not(:last-child) {
+      @include spacing(margin-bottom, loose);
+    }
+  }
+
+  > .l__main {
+    @include bp(medium) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  > .l__main > .l__primary,
+  > .l__main > .l__secondary {
+    @include bp(none medium) {
+      &:not(:last-child) {
+        @include spacing(margin-bottom, loose, none);
+      }
+    }
+
+    @include bp(medium) {
+      width: percentage(6/13);
+    }
+
+    @include bp(m-large) {
+      width: percentage(10/23);
+    }
+  }
+}
+
+.l--2-col--ruled {
+  > .l__main {
+    > .l__secondary {
+      position: relative;
+
+      @include bp(medium) {
+        &:after {
+          background-image: radial-gradient(circle, #818487 0.0825em, transparent 0.0876em);
+          background-position: top center;
+          background-repeat: repeat-y;
+          background-size: 0.3125em 0.3125em;
+          bottom: 0;
+          content: '';
+          display: block;
+          left: percentage(-0.5/6);
+          margin: auto;
+          position: absolute;
+          top: 0;
+          width: 0.325em;
+        }
+      }
+
+      @include bp(m-large) {
+        &:after {
+          left: percentage(-1.5/10);
+        }
+      }
+    }
+  }
+}
+
+.l--section-xl {
+  @include l--section-xl;
+}
+
+.l--section {
+  @include l--section;
+}
+
+.l--subsection {
+  @include spacing(margin-bottom, normal);
+}
+
+.l--subsection--tight {
+  @include spacing(margin-bottom, tight);
+}
+
+.region--header {
+  position: relative;
+  z-index: 10;
+}
+
+// Page specific style
+
+// This is reserve space while content is loading
+// So linking to this anchor is a little less jarring.
+[id='eventRegisterRoot'] {
+  min-height: rem(200px);
+
+  .form__actions .button:not(:first-child) {
+    margin-left: rem(10px);
+  }
+}
+
+// 2 column layout
+.l--2-col-50 {
+  width: 100%;
+
+  @include bp(smallish) {
+    align-content: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      padding: rem(10px);
+      width: 50%;
+    }
+  }
+}
+
+// 3 column layout
+.view-locations .view__content,
+.l--3-col {
+  width: 100%;
+
+  @include bp(smallish) {
+    align-content: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      padding: rem(10px);
+      width: 50%;
+    }
+  }
+  @include bp(x-large) {
+    > div {
+      padding: 0 0 50px 0;
+      width: calc(33.33% - 30px);
+    }
+  }
+}
+
+// Reserve equipment
+.view-intercept-equipment {
+  .view__content {
+    margin: 2em 0 1em;
+  }
+}
+
+// Room Reservations
+#views-exposed-form-intercept-room-reservations-page + .view__content {
+    margin: 2em 0 1em;
+}
+
+// Empty My Events (when logged in as an admin)
+.view__empty {
+  margin: 2em 0 1em;
+}
+
+// Event series
+.view-intercept-event-series {
+  .views-row {
+    &:not(:last-of-type) {
+      @include spacing(margin-bottom, sparse);
+
+      @include bp(small) {
+        @include spacing(margin-bottom, normal);
+      }
+    }
+  }
+}

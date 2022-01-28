@@ -1,0 +1,46 @@
+<article{{ attributes.addclass(['room-reservation']) }}>
+  {# Intro Text #}
+  <div class="l--1-col l--offset">
+    <div class="l--section">
+      {{ tabs }}
+    </div>
+  </div>
+
+  <header class="article__header l--offset">
+      {{ title_prefix }}
+      {% include '@intercept-base-components/page-title/page-title.twig' with {
+    text: label
+  } only %}
+      {{ title_suffix }}
+  </header>
+
+  <div class="l--1-col l--offset">
+    <div class="l__primary">
+      <div class="l--subsection">
+        {{ content.field_status }}
+      </div>
+
+      {% if content %}
+        <div class="l--subsection">
+          <h2>{{'Reservation Details'|t}}</h2>
+          {{ content|without('field_user', 'field_status', 'field_guest') }}
+        </div>
+      {% endif %}
+
+      {% if content.field_user|render|striptags|trim %}
+        <div class="l--subsection">
+          <h2>{{'Customer'|t}}</h2>
+          {{ content.field_user }}
+        </div>
+      {% endif %}
+
+      {% if content.field_guest|render|striptags|trim %}
+        <div class="l--subsection">
+          <h2>{{'Guest Reservation'|t}}</h2>
+          {{ content.field_guest }}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</article>
